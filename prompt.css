@@ -1,0 +1,122 @@
+/* OUTER CIRCLE */
+/* Container for the square */
+  .outer-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 4px solid;
+    margin: 50px auto;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  /* Text styling for each side */
+  .text-top, .text-bottom, .text-left, .text-right {
+    position: absolute;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(233, 123, 27);
+  }
+
+  /* Position each text */
+  .text-top {
+    top: -30px; /* adjusts how far text is away from boarder */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .text-bottom {
+    bottom: -30px; /* adjusts how far text is away from boarder */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .text-left {
+    top: 50%; /* adjusts how far text is away from boarder */
+    left: -45px;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  .text-right {
+    top: 50%;
+    right: -45px; /* adjusts how far text is away from boarder */
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+/* INNER CIRCLE */
+    /* Center container for the box and icon */
+    .arrow-box-container {
+        position: absolute;
+        top: 5px; /* adjust size if you change width or height */
+        left: 5px; /* adjust size if you change width or height */
+        width: 290px; /* adjust top/left if you change width or height */
+        height: 290px; /* adjust top/left if you change width or height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom right, #2E3192, #1BFFFF); /* Background gradient */
+        border-radius: 10px;
+        border-style: solid;
+        border-color: rgb(233, 123, 27);
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+      }
+  
+      /* Central icon */
+      .center-icon {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: rgb(233, 123, 27);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      /* Arrow base styles */
+      .arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+      }
+  
+      /* Top Arrow */
+      .arrow-top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 10px 10px 10px;
+        border-bottom-color: rgb(245, 206, 132);
+      }
+  
+
+  
+      /* Animation */
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+  
+      /* Rotating box */
+      .rotating-box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: rotate 20s linear infinite; /* Rotational Speed/Time */
+      } /* 16s = 4s per side */
+        

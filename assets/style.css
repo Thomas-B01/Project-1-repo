@@ -28,27 +28,23 @@ body{
 
 }
 main{
-    #circle{
-       width: 150px;
-       height: 150px;
-       background-color:rgb(40, 209, 231) ;
-border-radius: 75px;
-margin-left: auto;
-margin-right:auto ;
-div{
-    #funnybuttons{
-        flex: content;
-     text-align: right;
-     flex-wrap: wrap;
-     }
-
+    
+    
+    
+    div{
+        #funnybuttons{
+            flex: content;
+            text-align: right;
+            flex-wrap: wrap;
+        }
+        
     }
 }
 .container{
     flex: content;
     text-align: right;
 }
-}
+
 
 
 /* The Modal (background) */
@@ -88,3 +84,39 @@ div{
     text-decoration: none;
     cursor: pointer;
   }
+  #circle{
+   width: 150px;
+   height: 150px;
+   background-color:rgb(40, 209, 231) ;
+border-radius: 75px;
+margin-left: auto;
+margin-right:auto ;
+margin-top: auto;
+margin-bottom: auto;
+text-align:center;
+animation: expandShrink 5s infinite ease-in-out; 
+}
+
+@keyframes expandShrink {
+0% {
+transform: scale(1); 
+}
+50% {
+transform: scale(1.5); 
+}
+70%{
+    transform: scale(1.5);
+}
+100% {
+transform: scale(1); 
+}
+}
+.text{
+    font-size: large;
+    color: antiquewhite;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
