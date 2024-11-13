@@ -27,6 +27,10 @@ come to life with CSS, as well as add functionality to our webpage with javascri
 
 ## Technologies
 In this project we chose to use XXX technologies because... 
+- https://icons.getbootstrap.com/icons/plus-circle-fill/
+- https://icons.getbootstrap.com/icons/dash-circle-fill/
+- https://icons.getbootstrap.com/icons/pause-circle-fill/
+
 
 
 ## How To Use The Project
