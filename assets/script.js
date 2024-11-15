@@ -28,6 +28,7 @@ window.onclick = function(event) {
 
 
 
+
 // Client Side Storage
 
 // Example: Storing user preferences
