@@ -61,6 +61,29 @@ const closeButton = document.querySelector('.close-button');
 const quizForm = document.getElementById('quizForm');
 const quizResult = document.getElementById('quizResult');
 
+// Select the "No, thank you" button
+const noThanksButton = document.querySelector('.no.thanks');
+
+// Function to display all sources
+function displayAllResources() {
+    const allResources = `
+        <h3>Here are some resources that might help:</h3>
+        <ul>
+            <li><a href="https://www.health.harvard.edu/blog/what-is-neurodiversity-202111232645" target="_blank">Learn more about Neurodivergence</a></li>
+            <li><a href="https://www.who.int/news-room/fact-sheets/detail/depression" target="_blank">Learn more about Depression</a></li>
+            <li><a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank">Learn more about Anxiety Disorders</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Personality_disorder" target="_blank">Learn more about Personality Disorders</a></li>
+            <li><a href="https://growtherapy.com/wp/grow-brd/?g_acctid=735-200-2909&g_adgroupid=136246792271&g_adid=582218976177&g_adtype=search&g_campaign=Grow-Therapy%7CClient%7CSEM%7CAll%7CBRD%7CPhrase&g_campaignid=16220885160&g_keyword=grow%20therapy&g_keywordid=kwd-399665747887&g_network=g&utm_device=c&network=g&matchtype=p&geoid=9010227&utm_source=google&utm_medium=cpc&utm_campaign=136246792271&utm_content=582218976177&utm_term=grow%20therapy&cc_opt_out=true&gclid=CjwKCAiA3Na5BhAZEiwAzrfagGEIRkvC7a9U1dSyYaWlvZLkQsBy9iWfufhJ8qmXsPl9smbpFz0f6xoCvVwQAvD_BwE" target="_blank">Find therapy resources</a></li>
+        </ul>
+    `;
+
+    // Display the resources in the quizResult section
+    quizResult.innerHTML = allResources;
+}
+
+// Attach the event listener to the "No, thank you" button
+noThanksButton.addEventListener('click', displayAllResources);
+
 // Function to open the modal
 function openModal() {
     quizModal.style.display = 'flex';
@@ -100,35 +123,42 @@ quizForm.addEventListener('submit', (event) => {
     const formData = new FormData(quizForm);
     formData.forEach((value) => {
         // Increase the count for the selected category
-        if (value === 'neuro') {
-            answerCounts.neuro++;
-        } else if (value === 'depression') {
-            answerCounts.depression++;
-        } else if (value === 'anxiety') {
-            answerCounts.anxiety++;
-        } else if (value === 'personality') {
-            answerCounts.personality++;
-        }
+        answerCounts[value]++;
     });
-
-    // Debugging: Log answer counts
-    console.log('Answer Counts:', answerCounts);
 
     // Determine the result based on the highest count
     let resultMessage = '';
     const maxAnswer = Object.keys(answerCounts).reduce((a, b) => answerCounts[a] > answerCounts[b] ? a : b);
 
-    if (maxAnswer === 'neuro') {
-        resultMessage = 'You may struggle with Neurodivergence.';
-    } else if (maxAnswer === 'depression') {
-        resultMessage = 'You may struggle with Depression.';
-    } else if (maxAnswer === 'anxiety') {
-        resultMessage = 'You may struggle with an Anxiety Disorder.';
-    } else if (maxAnswer === 'personality') {
-        resultMessage = 'You may struggle with a Personality Disorder.';
-    }
+    // Detailed result messages with links
+    const detailedResults = {
+        neuro: `
+            <p>You may struggle with Neurodivergence. Neurodivergent is a term used to describe people whose brains process information differently than most people, resulting in different strengths and challenges. Neurodivergent people may have conditions such as autism spectrum disorder, attention deficit hyperactivity disorder, dyslexia, or obsessive-compulsive disorder. They may also have different strengths, such as better memory or the ability to solve complex math calculations in their head.</p>
+            <a href="https://www.health.harvard.edu/blog/what-is-neurodiversity-202111232645" target="_blank">Learn more about Neurodivergence</a>
+            <br>
+            <a href="https://growtherapy.com/wp/grow-brd/?g_acctid=735-200-2909&g_adgroupid=136246792271&g_adid=582218976177&g_adtype=search&g_campaign=Grow-Therapy%7CClient%7CSEM%7CAll%7CBRD%7CPhrase&g_campaignid=16220885160&g_keyword=grow%20therapy&g_keywordid=kwd-399665747887&g_network=g&utm_device=c&network=g&matchtype=p&geoid=9010227&utm_source=google&utm_medium=cpc&utm_campaign=136246792271&utm_content=582218976177&utm_term=grow%20therapy&cc_opt_out=true&gclid=CjwKCAiA3Na5BhAZEiwAzrfagGEIRkvC7a9U1dSyYaWlvZLkQsBy9iWfufhJ8qmXsPl9smbpFz0f6xoCvVwQAvD_BwE" target="_blank">Find therapy resources</a>
+        `,
+        depression: `
+            <p>You may struggle with Depression. Depression is a serious mental health condition that involves a persistent low mood and loss of interest in activities. Symptoms include feeling sad, loss of interest, poor concentration, and feelings of low self-worth.</p>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/depression" target="_blank">Learn more about Depression</a>
+            <br>
+            <a href="https://growtherapy.com/wp/grow-brd/?g_acctid=735-200-2909&g_adgroupid=136246792271&g_adid=582218976177&g_adtype=search&g_campaign=Grow-Therapy%7CClient%7CSEM%7CAll%7CBRD%7CPhrase&g_campaignid=16220885160&g_keyword=grow%20therapy&g_keywordid=kwd-399665747887&g_network=g&utm_device=c&network=g&matchtype=p&geoid=9010227&utm_source=google&utm_medium=cpc&utm_campaign=136246792271&utm_content=582218976177&utm_term=grow%20therapy&cc_opt_out=true&gclid=CjwKCAiA3Na5BhAZEiwAzrfagGEIRkvC7a9U1dSyYaWlvZLkQsBy9iWfufhJ8qmXsPl9smbpFz0f6xoCvVwQAvD_BwE" target="_blank">Find therapy resources</a>
+        `,
+        anxiety: `
+            <p>You may struggle with an Anxiety Disorder. Anxiety disorders cause excessive fear and worry that persist over time. Symptoms may include physical effects like a rapid heartbeat or mental symptoms like poor concentration and trouble sleeping.</p>
+            <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank">Learn more about Anxiety Disorders</a>
+            <br>
+            <a href="https://growtherapy.com/wp/grow-brd/?g_acctid=735-200-2909&g_adgroupid=136246792271&g_adid=582218976177&g_adtype=search&g_campaign=Grow-Therapy%7CClient%7CSEM%7CAll%7CBRD%7CPhrase&g_campaignid=16220885160&g_keyword=grow%20therapy&g_keywordid=kwd-399665747887&g_network=g&utm_device=c&network=g&matchtype=p&geoid=9010227&utm_source=google&utm_medium=cpc&utm_campaign=136246792271&utm_content=582218976177&utm_term=grow%20therapy&cc_opt_out=true&gclid=CjwKCAiA3Na5BhAZEiwAzrfagGEIRkvC7a9U1dSyYaWlvZLkQsBy9iWfufhJ8qmXsPl9smbpFz0f6xoCvVwQAvD_BwE" target="_blank">Find therapy resources</a>
+        `,
+        personality: `
+            <p>You may struggle with a Personality Disorder. Personality disorders are patterns of thinking and behavior that can cause distress and difficulties in relationships. They are often divided into clusters such as Cluster A (odd) and Cluster B (dramatic).</p>
+            <a href="https://en.wikipedia.org/wiki/Personality_disorder" target="_blank">Learn more about Personality Disorders</a>
+            <br>
+            <a href="https://growtherapy.com/wp/grow-brd/?g_acctid=735-200-2909&g_adgroupid=136246792271&g_adid=582218976177&g_adtype=search&g_campaign=Grow-Therapy%7CClient%7CSEM%7CAll%7CBRD%7CPhrase&g_campaignid=16220885160&g_keyword=grow%20therapy&g_keywordid=kwd-399665747887&g_network=g&utm_device=c&network=g&matchtype=p&geoid=9010227&utm_source=google&utm_medium=cpc&utm_campaign=136246792271&utm_content=582218976177&utm_term=grow%20therapy&cc_opt_out=true&gclid=CjwKCAiA3Na5BhAZEiwAzrfagGEIRkvC7a9U1dSyYaWlvZLkQsBy9iWfufhJ8qmXsPl9smbpFz0f6xoCvVwQAvD_BwE" target="_blank">Find therapy resources</a>
+        `
+    };
 
-    // Display the result on the main page
-    quizResult.textContent = resultMessage;
+    // Display the detailed result
+    quizResult.innerHTML = detailedResults[maxAnswer];
     closeModal(); // Close the modal after submission
 });
