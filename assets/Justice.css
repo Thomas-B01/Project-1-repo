@@ -54,6 +54,7 @@ header {
     width: 50px;
     padding: 0;
     border-radius: 50%;  /* Circular button */
+    border-color: lemonchiffon;
     background-color: var(--base-variant);
     display: flex;
     justify-content: center;
