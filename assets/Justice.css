@@ -1,0 +1,384 @@
+h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 5em;
+}
+
+
+h2 {
+    font-family: 'Meie Script', cursive;
+    font-size: 2em;
+}
+
+
+body {
+    font-family: 'Lumanosimo', sans-serif;
+    font-size: 1em;
+}
+
+/* General Body Styling */
+body {
+    background-color: var(--base-color);
+    color: var(--text-color);
+    font-family: 'Lumanosimo', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for color changes */
+}
+
+body.darkmode {
+    background-color: var(--base-color);
+}
+
+/* Header Style */
+header {
+    color: var(--text-color);             /* Change header text color based on mode */
+    background: var(--base-variant);      /* Change header background based on mode */
+    border: 3px solid var(--secondary-color);
+    box-shadow: 10px 3px 3px var(--primary-color);
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for header color */
+}
+
+/* Title Styling */
+#title {
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Theme Switch Button */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;  /* Circular button */
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    overflow: hidden;  /* Hide overflow */
+    clip-path: circle(50%);  /* Circular masking */
+    transition: background-color 0.3s ease;
+}
+
+/* Icons inside the Theme Switch Button */
+#theme-switch svg {
+    width: 24px;   /* Adjust size of the icon */
+    height: 24px;
+    fill: var(--primary-color);
+    transition: fill 0.3s ease;
+}
+
+/* Hide one of the SVGs initially (you may want to toggle this in JavaScript) */
+#theme-switch svg:last-child {
+    display: none;  /* Hide second icon; toggle visibility in JavaScript as needed */
+}
+
+/* Appearance Section (Color Pickers) */
+.appearance {
+    padding: 20px;
+    text-align: center;
+}
+
+.appearance h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.appearance p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input[type="color"] {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    overflow: hidden;
+    clip-path: circle(50%);
+    appearance: none; /* Ensures consistent styling across browsers */
+    transition: border-color 0.3s ease;
+}
+
+/* Focus Effect for Color Picker */
+input[type="color"]:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);  /* Highlight border when focused */
+}
+
+/* Dark Mode Styles */
+.darkmode {
+    --base-color: black;
+    --base-variant: #9127a1;
+    --text-color: #af99e2;
+    --secondary-text: white;
+    --primary-color: #F09BFD;
+    --secondary-color: lemonchiffon;
+}
+
+/* Light Mode Styles (default) */
+:root {
+    --base-color: rgb(226, 226, 226);
+    --base-variant: #F09BFD;
+    --text-color: #1F0067;
+    --secondary-text: black;
+    --primary-color: #97cdff;
+    --secondary-color: lemonchiffon;
+}
+
+/* Styles for devices with a max width of 600px (smartphones) */
+@media (max-width: 600px) {
+    /* Body text and other elements */
+    body {
+        font-size: 0.9em; /* Slightly smaller font for readability */
+        padding: 10px;
+    }
+
+    /* Header styling */
+    header {
+        padding: 8px;
+        font-size: 1.2em;
+    }
+
+    /* Adjust h1 and h2 sizes for smaller screens */
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    /* Responsive theme switch button position */
+    #theme-switch {
+        height: 40px;
+        width: 40px;
+        top: 15px;
+        right: 15px;
+    }
+
+    /* Make color pickers fit better on smaller screens */
+    input[type="color"] {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* General adjustments to sections and text alignment */
+    .appearance {
+        padding: 15px;
+        text-align: left;
+    }
+}
+
+/* Breathing Section Styling */
+.breathing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Center the Breathing Visual and Position the Play/Pause Button */
+.breathing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.breathing-instruction {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+/* Adjusted CSS for Breathing Animation */
+.outer-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.inner-circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;      /* Ensures it's always a circle */
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    /* Remove any margin or padding if present */
+    margin: 0;
+    padding: 0;
+}
+
+/* Keyframes specifically for breathing animation */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1); /* Initial state, no scaling */
+        box-shadow: none;
+    }
+    25% {
+        transform: scale(1.5);  /* Uniform scale */
+        box-shadow: 0 0 15px 10px rgba(240, 155, 253, 0.6);
+    }
+    50% {
+        transform: scale(2);  /* Uniform scale */
+        box-shadow: 0 0 20px 15px rgba(240, 155, 253, 0.6);
+    }
+    75% {
+        transform: scale(1.5);  /* Contracting */
+        box-shadow: 0 0 15px 10px rgba(240, 155, 253, 0.3);
+    }
+}
+
+/* Center Breathing Section Vertically */
+.breathing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh; /* Center within viewport, leaving space for header and footer */
+    animation: breathe 8s ease-in-out infinite;
+}
+
+/* Tap Message Styling */
+.tap-message {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.play-pause-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-left: 15px; /* Space between the circle and button */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-pause-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Matching Style for Modal Buttons */
+.modal-quiz,
+.no-thanks {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-quiz:hover,
+.no-thanks:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it sits above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    overflow-wrap: break-word; /* Ensures long text wraps */
+    word-wrap: break-word;
+}
+
+/* Select Dropdown Styling */
+.modal-content select {
+    width: 100%;               /* Full width to fit modal */
+    max-width: 100%;           /* Prevent overflow */
+    white-space: normal;       /* Allow text wrapping */
+    padding: 8px;
+    margin-top: 8px;
+    font-size: 1em;
+}
+
+/* Close Button */
+.close-button {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    float: right;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Quiz Result Styling */
+.quiz-result {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer Styling - matches Header */
+footer {
+    color: var(--text-color);             /* Matches header text color */
+    background: var(--base-variant);      /* Matches header background */
+    border: 3px solid var(--secondary-color);
+    box-shadow: 10px 3px 3px var(--primary-color);
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    margin-top: 20px;
+}
