@@ -1,4 +1,4 @@
-
+/* Header+Body style */
 header{color:darkorchid;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -45,8 +45,6 @@ main{
     text-align: right;
 }
 
-
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -84,6 +82,8 @@ main{
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* Breathing circle animation */
   #circle{
    width: 150px;
    height: 150px;
@@ -120,3 +120,10 @@ transform: scale(1);
     text-align: center;
 }
 
+   
+
+/* Media Query */
+@media screen and(min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }

@@ -13,31 +13,29 @@ We learned how to collaboratively come up with a cohesive design for our webpage
 come to life with CSS, as well as add functionality to our webpage with javascript. 
 
 
-## Challenges
-- Navigating GitHub
-- Collaborating/delegating tasks
-- Re-learning HTML, CSS, and JavaScript 
-- Searching online for things we didnt learn in class
-
-
-## What We Learned 
+## What We Learned / Challenges 
 - How to create a toggleable switch
 - how to navigate GitHub
 - How to work efficiently as a team 
+- Getting code to work
+- Animation
+- Bootstrap
+- Media Queries 
+- Client Side Storage
+- How to use a Modal
+- How to use a color picker 
+- Its better to have one focused design than trying to frankenstein multiple designs together
+- How to use fonts
 
 ## Technologies
-In this project we chose to use XXX technologies because... 
-- https://icons.getbootstrap.com/icons/plus-circle-fill/
-- https://icons.getbootstrap.com/icons/dash-circle-fill/
-- https://icons.getbootstrap.com/icons/pause-circle-fill/
+In this project we chose to use Bootstrap, and a Modal. 
 
+
+## Screenshots
 
 
 ## How To Use The Project
 You breath in, out, and hold acording to the animation, and you can adjust the length of your breaths by clicking the plus or minus button. There are also toggleable features you can select to ... 
-
-
-## Screenshots
 
 
 ## How to Install/Run Project 
