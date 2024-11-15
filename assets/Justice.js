@@ -62,7 +62,7 @@ const quizForm = document.getElementById('quizForm');
 const quizResult = document.getElementById('quizResult');
 
 // Select the "No, thank you" button
-const noThanksButton = document.querySelector('.no.thanks');
+const noThanksButton = document.querySelector('.model-quiz');
 
 // Function to display all sources
 function displayAllResources() {
