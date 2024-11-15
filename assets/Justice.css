@@ -54,7 +54,6 @@ header {
     width: 50px;
     padding: 0;
     border-radius: 50%;  /* Circular button */
-    border-color: lemonchiffon;
     background-color: var(--base-variant);
     display: flex;
     justify-content: center;
@@ -101,12 +100,10 @@ input[type="color"] {
     width: 40px;
     height: 40px;
     padding: 0;
-    border-radius: 50%;
     border: none;
     cursor: pointer;
     background-color: transparent;
     overflow: hidden;
-    clip-path: circle(50%);
     appearance: none; /* Ensures consistent styling across browsers */
     transition: border-color 0.3s ease;
 }
@@ -235,18 +232,15 @@ input[type="color"]:focus {
         transform: scale(1); /* Initial state, no scaling */
         box-shadow: none;
     }
-    25% {
-        transform: scale(1.5);  /* Uniform scale */
-        box-shadow: 0 0 15px 10px rgba(240, 155, 253, 0.6);
-    }
-    50% {
+    34% {
         transform: scale(2);  /* Uniform scale */
         box-shadow: 0 0 20px 15px rgba(240, 155, 253, 0.6);
     }
-    75% {
-        transform: scale(1.5);  /* Contracting */
+    67% {
+        transform: scale(2);  /*hold*/
         box-shadow: 0 0 15px 10px rgba(240, 155, 253, 0.3);
     }
+    
 }
 
 /* Center Breathing Section Vertically */
@@ -256,8 +250,9 @@ input[type="color"]:focus {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 80vh; /* Center within viewport, leaving space for header and footer */
-    animation: breathe 8s ease-in-out infinite;
+    min-height: 80px; /* Center within viewport, leaving space for header and footer */
+    min-width: 80px;
+    animation: breathe 12s ease-in-out infinite;
 }
 
 /* Tap Message Styling */
