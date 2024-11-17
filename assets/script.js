@@ -92,6 +92,7 @@ function openModal() {
 // Function to close the modal
 function closeModal() {
     quizModal.style.display = 'none';
+    console.log("Modal closed");  // Debugging log to check if the modal is closing
 }
 
 // Open the modal when the "Sure!" button is clicked
@@ -108,8 +109,10 @@ window.addEventListener('click', (event) => {
 });
 
 // Handle quiz form submission
-quizForm.addEventListener('Submit', (event) => {
+quizForm.addEventListener('submit', (event) => {  // Use 'submit' (lowercase)
     event.preventDefault(); // Prevent page reload
+
+    console.log("Form submitted");  // Debugging log to check form submission
 
     // Count each answer type selected by the user
     const answerCounts = {
@@ -160,5 +163,7 @@ quizForm.addEventListener('Submit', (event) => {
 
     // Display the detailed result
     quizResult.innerHTML = detailedResults[maxAnswer];
-    closeModal(); // Close the modal after submission
+
+    // Close the modal after submission
+    closeModal();
 });
