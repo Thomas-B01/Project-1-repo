@@ -297,6 +297,24 @@ input[type="color"]:focus {
     background-color: var(--secondary-color);
 }
 
+.model-quiz,
+.no-thanks {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.model-quiz:hover,
+.no-thanks:hover {
+    background-color: var(--secondary-color);
+}
+
 /* Modal Background */
 .modal {
     display: none; /* Hidden by default */
