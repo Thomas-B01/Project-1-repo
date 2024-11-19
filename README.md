@@ -49,6 +49,6 @@ Please access this application with your preffered web browser.
 
 ## 8. Credits
 - Thomas Boland
+- Jeffery Brooks
 - Justice Foster
 - Kuong (Henry) Lim
-- Jeffry Brooks
