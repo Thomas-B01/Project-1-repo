@@ -1,11 +1,6 @@
 let darkmode = localStorage.getItem('darkmode');
 const themeSwitch = document.getElementById('theme-switch');
 
-// Color picker elements
-const backgroundColorPicker = document.getElementById('background-color');
-const headerColorPicker = document.getElementById('header-color');
-const textColorPicker = document.getElementById('text-color');
-
 // Dark mode color settings
 const darkModeColors = {
     backgroundColor: "#000000",
@@ -20,14 +15,10 @@ const lightModeColors = {
     textColor: "#1F0067"
 };
 
+// Function to enable dark mode
 const enableDarkmode = () => {
     document.body.classList.add('darkmode');
-    localStorage.setItem('darkmode', 'active');
-
-    // Set dark mode colors for pickers
-    backgroundColorPicker.value = darkModeColors.backgroundColor;
-    headerColorPicker.value = darkModeColors.headerColor;
-    textColorPicker.value = darkModeColors.textColor;
+    localStorage.setItem('darkmode', 'active'); // Immediately save dark mode state
 
     // Apply dark mode colors
     document.body.style.backgroundColor = darkModeColors.backgroundColor;
@@ -35,14 +26,10 @@ const enableDarkmode = () => {
     document.body.style.color = darkModeColors.textColor;
 };
 
+// Function to disable dark mode
 const disableDarkmode = () => {
     document.body.classList.remove('darkmode');
-    localStorage.setItem('darkmode', null);
-
-    // Set light mode colors for pickers
-    backgroundColorPicker.value = lightModeColors.backgroundColor;
-    headerColorPicker.value = lightModeColors.headerColor;
-    textColorPicker.value = lightModeColors.textColor;
+    localStorage.setItem('darkmode', 'null'); // Immediately save light mode state
 
     // Apply light mode colors
     document.body.style.backgroundColor = lightModeColors.backgroundColor;
@@ -50,64 +37,23 @@ const disableDarkmode = () => {
     document.body.style.color = lightModeColors.textColor;
 };
 
-// Toggle dark mode based on localStorage
-if (darkmode === "active") enableDarkmode();
-
-// Get colors from localStorage
-const savedBackgroundColor = localStorage.getItem('backgroundColor');
-const savedHeaderColor = localStorage.getItem('headerColor');
-const savedTextColor = localStorage.getItem('textColor');
-
-// Set colors from localStorage on page load
-if (savedBackgroundColor) {
-    document.body.style.backgroundColor = savedBackgroundColor;
-    backgroundColorPicker.value = savedBackgroundColor; // Update the color picker
+// Check for dark mode state in localStorage on initial load
+if (darkmode === "active") {
+    enableDarkmode();
+} else {
+    disableDarkmode();
 }
 
-localStorage.setItem('backgroundColor', darkModeColors.backgroundColor);
-localStorage.setItem('headerColor', darkModeColors.headerColor);
-localStorage.setItem('textColor', darkModeColors.textColor);
-
-if (savedHeaderColor) {
-    const header = document.querySelector('header');
-    header.style.backgroundColor = savedHeaderColor;
-    headerColorPicker.value = savedHeaderColor; // Update the color picker
-}
-
-if (savedTextColor) {
-    document.body.style.color = savedTextColor;
-    textColorPicker.value = savedTextColor; // Update the color picker
-}
-
-// Function to update the background color
-backgroundColorPicker.addEventListener("input", (event) => {
-    document.body.style.backgroundColor = event.target.value;
-    localStorage.setItem('backgroundColor', event.target.value); // Save color in localStorage
-});
-
-// Function to update the header color
-headerColorPicker.addEventListener("input", (event) => {
-    const header = document.querySelector('header');
-    header.style.backgroundColor = event.target.value;
-    localStorage.setItem('headerColor', event.target.value); // Save color in localStorage
-});
-
-// Function to update the text color
-textColorPicker.addEventListener("input", (event) => {
-    document.body.style.color = event.target.value;
-    localStorage.setItem('textColor', event.target.value); // Save color in localStorage
-});
-
+// Toggle dark mode based on button click
 themeSwitch.addEventListener("click", () => {
     darkmode = localStorage.getItem('darkmode');
     if (darkmode !== "active") {
-        enableDarkmode();
+        enableDarkmode(); // Activate dark mode
         themeSwitch.querySelector("svg:first-child").style.display = "none";
         themeSwitch.querySelector("svg:last-child").style.display = "block";
     } else {
-        disableDarkmode();
+        disableDarkmode(); // Deactivate dark mode
         themeSwitch.querySelector("svg:first-child").style.display = "block";
         themeSwitch.querySelector("svg:last-child").style.display = "none";
     }
 });
-
