@@ -15,8 +15,8 @@ function updateBreathingInstruction() {
     instruction.textContent = phases[phaseIndex];
     phaseIndex = (phaseIndex + 1) % phases.length; // Cycle through phases
 
-    // Schedule the next phase update after 2 seconds (for 8 seconds total)
-    breathingTimeout = setTimeout(updateBreathingInstruction, 2000);
+    // Schedule the next phase update after 4 seconds (for 12 seconds total)
+    breathingTimeout = setTimeout(updateBreathingInstruction, 4000);
 }
 
 function startBreathing() {
