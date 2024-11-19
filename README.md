@@ -33,7 +33,7 @@ In this project we chose to use Bootstrap, and a Modal.
 
 ## Screenshots
 ![Top of website](<./Screenshots/Top of website.png>)
-![alt text](<./Screenshots/Bottom of website.pngBottom of website.png>)
+![alt text](<./Screenshots/Bottom of website.png>)
 ![Modal "Sure"](<./Screenshots/Modal Sure .png>)
 ![Drop down "Nothanks"](<./Screenshots/Drop down Nothanks.png>)
 ![Circle Compressed](<./Screenshots/Circle Compressed.png>)
