@@ -39,7 +39,7 @@ function stopBreathing() {
 }
 
 // Event listener for initial tap to start the breathing
-document.addEventListener('click', (event) => {
+playPauseButton.addEventListener('click', (event) => {
     if (!animationActive && event.target !== playPauseButton) {
         startBreathing();
     }
