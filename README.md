@@ -32,7 +32,12 @@ In this project we chose to use Bootstrap, and a Modal.
 
 
 ## Screenshots
-
+![Top of website](<./Screenshots/Top of website.png>)
+![Bottom of website](<./Screenshots/Bottom of website.png>)
+![Modal "Sure"](<./Screenshots/Modal "Sure" .png>)
+![Drop down "Nothanks"](<./Screenshots/Drop down "Nothanks".png>)
+![Circle Compressed](<./Screenshots/Circle Compressed.png>)
+![Circle Expanded](<./Screenshots/Circle Expanded.png>)
 
 ## How To Use The Project
 You breath in, out, and hold acording to the animation, and you can adjust the length of your breaths by clicking the plus or minus button. There are also toggleable features you can select to ... 
