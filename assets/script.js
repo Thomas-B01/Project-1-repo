@@ -5,7 +5,7 @@ const innerCircle = document.querySelector('.inner-circle');
 const instruction = document.querySelector('.breathing-instruction');
 
 // Breathing phases text
-const phases = ["Breathe in...", "Hold...", "Breathe out...", "Hold..."];
+const phases = ["Breathe in...", "Hold...", "Breathe out..."];
 let phaseIndex = 0;
 let animationActive = false;  // Track animation state
 let breathingTimeout;         // Timeout for instruction text
